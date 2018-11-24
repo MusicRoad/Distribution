@@ -3,13 +3,13 @@ import {PropTypes as T} from 'prop-types'
 import classes from 'classnames'
 import times from 'lodash/times'
 
-import {constants as theoryConstants} from '#/plugin/music-theory/constants'
-import {addSemitones} from '#/plugin/music-theory/utils'
-import {Note as NoteTypes} from '#/plugin/music-theory/prop-types'
-import {Tuning as TuningTypes} from '#/plugin/music-instrument/tuning/prop-types'
+import {constants as theoryConstants} from '~/music-road/distribution/plugin/theory/constants'
+import {addSemitones} from '~/music-road/distribution/plugin/theory/utils'
+import {Note as NoteTypes} from '~/music-road/distribution/plugin/theory/prop-types'
+import {Tuning as TuningTypes} from '~/music-road/distribution/plugin/instrument/data/types/tuning/prop-types'
 
-import {constants} from '#/plugin/music-instrument/instruments/guitar/constants'
-import {fretPosition} from '#/plugin/music-instrument/instruments/guitar/utils'
+import {constants} from '~/music-road/distribution/plugin/instrument/instruments/guitar/constants'
+import {fretPosition} from '~/music-road/distribution/plugin/instrument/instruments/guitar/utils'
 
 const Note = props =>
   <span className={classes('note', !props.showNote && 'sr-only', props.note.accidental && 'accidental')}>

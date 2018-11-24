@@ -1,6 +1,6 @@
 <?php
 
-namespace MusicRoad\BookBundle\Controller\Api;
+namespace MusicRoad\SongBookBundle\Controller\Api;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration as EXT;
 

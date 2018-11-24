@@ -6,7 +6,7 @@ import PanelGroup from 'react-bootstrap/lib/PanelGroup'
 import OverlayTrigger from 'react-bootstrap/lib/OverlayTrigger'
 import Tooltip from 'react-bootstrap/lib/Tooltip'
 
-import {Icon as InstrumentIcon} from '#/plugin/music-instrument/instruments/components/icon.jsx'
+import {Icon as InstrumentIcon} from '~/music-road/distribution/plugin/instrument/instruments/components/icon.jsx'
 
 const TrackHeader = props =>
   <div>

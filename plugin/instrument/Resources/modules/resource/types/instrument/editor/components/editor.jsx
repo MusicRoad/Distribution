@@ -2,15 +2,15 @@ import React from 'react'
 import {PropTypes as T} from 'prop-types'
 import {connect} from 'react-redux'
 
-import {t, trans} from '#/main/core/translation'
-import {EmptyPlaceholder} from '#/main/core/layout/components/placeholder.jsx'
-import {FormContainer} from '#/main/core/data/form/containers/form.jsx'
-import {select} from '#/main/core/data/form/selectors'
+import {trans} from '#/main/app/intl/translation'
+import {EmptyPlaceholder} from '#/main/core/layout/components/placeholder'
+import {FormData} from '#/main/app/content/form/containers/data'
+import {selectors as select} from '#/main/app/content/form/store'
 
-import {getDefinition} from '#/plugin/music-instrument/instruments'
-import {InstrumentType as InstrumentTypeTypes} from '#/plugin/music-instrument/instruments/prop-types'
-import {Icon as InstrumentIcon} from '#/plugin/music-instrument/instruments/components/icon.jsx'
-import {Tuner} from '#/plugin/music-instrument/tuner/components/tuner.jsx'
+import {getDefinition} from '~/music-road/distribution/plugin/instrument/instruments'
+import {InstrumentType as InstrumentTypeTypes} from '~/music-road/distribution/plugin/instrument/instruments/prop-types'
+import {Icon as InstrumentIcon} from '~/music-road/distribution/plugin/instrument/instruments/components/icon'
+import {Tuner} from '~/music-road/distribution/plugin/instrument/tuner/components/tuner'
 
 const Inputs = props =>
   <div className="inputs-form">
@@ -44,7 +44,7 @@ const InstrumentTypeDesc = props =>
   </div>
 
 const EditorComponent = props =>
-  <FormContainer
+  <FormData
     level={2}
     name="instrument"
     sections={[
@@ -77,7 +77,7 @@ const EditorComponent = props =>
 
     <Inputs />
     <Outputs />
-  </FormContainer>
+  </FormData>
 
 EditorComponent.propTypes = {
   instrument: T.shape({

@@ -42,7 +42,7 @@ class LoadTuningData extends AbstractFixture implements OrderedFixtureInterface
             // Add tuning Notes
             foreach ($tuning['notes'] as $index => $note) {
                 /** @var NoteRepository $noteRepo */
-                $noteRepo = $manager->getRepository('ClarolineMusicTheoryBundle:Note\Note');
+                $noteRepo = $manager->getRepository('MusicRoadTheoryBundle:Note\Note');
                 $noteEntity = $noteRepo->findOneByNameAndOctave($note[0], $note[1]);
 
                 $tuningNote = new TuningNote();

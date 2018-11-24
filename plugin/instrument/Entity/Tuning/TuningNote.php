@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TuningNote.
  *
  * @ORM\Entity()
- * @ORM\Table(name="claro_music_tuning_note")
+ * @ORM\Table(name="music_tuning_note")
  */
 class TuningNote
 {

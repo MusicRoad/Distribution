@@ -1,6 +1,6 @@
 <?php
 
-namespace MusicRoad\BookBundle\Entity;
+namespace MusicRoad\SongBookBundle\Entity;
 
 use Claroline\CoreBundle\Entity\Resource\AbstractResource;
 use Doctrine\ORM\Mapping as ORM;

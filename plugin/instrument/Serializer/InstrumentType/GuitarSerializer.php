@@ -2,7 +2,7 @@
 
 namespace MusicRoad\InstrumentBundle\Serializer\InstrumentType;
 
-use Claroline\CoreBundle\API\SerializerProvider;
+use Claroline\AppBundle\API\SerializerProvider;
 use MusicRoad\InstrumentBundle\Entity\InstrumentType\Guitar;
 use JMS\DiExtraBundle\Annotation as DI;
 
@@ -34,7 +34,7 @@ class GuitarSerializer
      */
     public function getClass()
     {
-        return 'MusicRoad\InstrumentBundle\Entity\InstrumentType\Guitar';
+        return Guitar::class;
     }
 
     /**
@@ -42,7 +42,7 @@ class GuitarSerializer
      */
     public function getSchema()
     {
-        return '#/plugin/music-instrument/guitar.json';
+        return '~/music-road/distribution/plugin/instrument/guitar.json';
     }
 
     /**
@@ -50,7 +50,7 @@ class GuitarSerializer
      */
     public function getSamples()
     {
-        return '#/plugin/music-instrument/guitar';
+        return '~/music-road/distribution/plugin/instrument/guitar';
     }
 
     public function serialize(Guitar $guitar, array $options = [])

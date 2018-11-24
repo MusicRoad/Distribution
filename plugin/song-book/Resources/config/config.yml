@@ -3,20 +3,20 @@ plugin:
     has_options: true
 
     resources:
-        - name:  claro_sheet_music
-          class: MusicRoad\BookBundle\Entity\SheetMusic
+        - name:  music_sheet_music
+          class: MusicRoad\SongBookBundle\Entity\SheetMusic
           icon:  res_sheet_music.png
 
-        - name:  claro_artist
-          class: MusicRoad\BookBundle\Entity\Artist
+        - name:  music_artist
+          class: MusicRoad\SongBookBundle\Entity\Artist
           icon:  res_artist.png
 
-        - name:  claro_song
-          class: MusicRoad\BookBundle\Entity\Song
+        - name:  music_song
+          class: MusicRoad\SongBookBundle\Entity\Song
           icon:  res_song.png
 
     tools:
-        - name:                        claro_song_book
+        - name:                        music_song_book
           class:                       music
           is_displayable_in_workspace: false
           is_displayable_in_desktop:   true

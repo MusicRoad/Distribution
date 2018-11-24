@@ -2,7 +2,7 @@
 
 namespace MusicRoad\InstrumentBundle\Controller\Api;
 
-use Claroline\CoreBundle\Persistence\ObjectManager;
+use Claroline\AppBundle\Persistence\ObjectManager;
 use MusicRoad\InstrumentBundle\Entity\Tuning\Tuning;
 use JMS\DiExtraBundle\Annotation as DI;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration as EXT;
@@ -44,7 +44,7 @@ class TuningController
      */
     public function listAction()
     {
-        $entities = $this->om->getRepository('TuningBundle:Tuning')->findBy([]);
+        $entities = $this->om->getRepository(Tuning::class)->findBy([]);
 
         return new JsonResponse($entities);
     }

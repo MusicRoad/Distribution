@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Tuning.
  *
  * @ORM\Entity()
- * @ORM\Table(name="claro_music_tuning")
+ * @ORM\Table(name="music_tuning")
  */
 class Tuning
 {

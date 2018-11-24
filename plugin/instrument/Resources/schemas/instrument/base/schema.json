@@ -6,7 +6,7 @@
       "type": "string"
     },
     "type": {
-      "$ref": "#/plugin/music-instrument/instrument-type/schema.json"
+      "$ref": "~/music-road/distribution/plugin/instrument/instrument-type/schema.json"
     },
     "model": {
       "type": "string"

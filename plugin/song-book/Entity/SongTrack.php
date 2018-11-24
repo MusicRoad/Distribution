@@ -1,6 +1,6 @@
 <?php
 
-namespace MusicRoad\BookBundle\Entity;
+namespace MusicRoad\SongBookBundle\Entity;
 
 use MusicRoad\InstrumentBundle\Entity\Instrument;
 use Doctrine\ORM\Mapping as ORM;
@@ -45,7 +45,7 @@ class SongTrack implements \JsonSerializable
     /**
      * Linked song.
      *
-     * @ORM\ManyToOne(targetEntity="MusicRoad\BookBundle\Entity\Song", inversedBy="tracks")
+     * @ORM\ManyToOne(targetEntity="MusicRoad\SongBookBundle\Entity\Song", inversedBy="tracks")
      * @ORM\JoinColumn(name="song_id", referencedColumnName="id", onDelete="CASCADE")
      *
      * @var Song

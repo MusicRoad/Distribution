@@ -2,7 +2,9 @@
 
 namespace MusicRoad\InstrumentBundle\Controller\Api;
 
+use MusicRoad\InstrumentBundle\Entity\Instrument;
 use MusicRoad\InstrumentBundle\Entity\InstrumentType;
+use MusicRoad\InstrumentBundle\Entity\Tuning\Tuning;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration as EXT;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -26,7 +28,7 @@ class InstrumentTypeController extends Controller
     {
         $entities = $this->container
             ->get('doctrine.orm.entity_manager')
-            ->getRepository('InstrumentBundle:InstrumentType')
+            ->getRepository(InstrumentType::class)
             ->findBy(['enabled' => true], ['name' => 'ASC']);
 
         return new JsonResponse($entities);
@@ -61,7 +63,7 @@ class InstrumentTypeController extends Controller
     {
         $entities = $this->container
             ->get('doctrine.orm.entity_manager')
-            ->getRepository('ClarolineMusicInstrumentBundle:Instrument')
+            ->getRepository(Instrument::class)
             ->findBy([
                 'type' => $instrumentType,
                 'resourceNode' => null, // Only get the platform generic Instruments
@@ -84,7 +86,7 @@ class InstrumentTypeController extends Controller
     {
         $entities = $this->container
             ->get('doctrine.orm.entity_manager')
-            ->getRepository('ClarolineMusicInstrumentBundle:Tuning\Tuning')
+            ->getRepository(Tuning::class)
             ->findBy([
                 'instrumentType' => $instrumentType,
             ]);

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Tuning Category.
  *
  * @ORM\Entity()
- * @ORM\Table(name="claro_music_tuning_category")
+ * @ORM\Table(name="music_tuning_category")
  */
 class TuningCategory
 {

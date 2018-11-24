@@ -2,24 +2,20 @@
 
 namespace MusicRoad\TheoryBundle\Entity;
 
+use Claroline\AppBundle\Entity\Identifier\Id;
+use Claroline\AppBundle\Entity\Identifier\Uuid;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Interval.
  *
  * @ORM\Entity()
- * @ORM\Table(name="claro_music_interval")
+ * @ORM\Table(name="music_interval")
  */
 class Interval
 {
-    /**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     *
-     * @var int
-     */
-    private $id;
+    use Id;
+    use Uuid;
 
     /**
      * @ORM\Column(type="string")
@@ -65,13 +61,11 @@ class Interval
     private $value;
 
     /**
-     * Get id.
-     *
-     * @return int
+     * Interval constructor.
      */
-    public function getId()
+    public function __construct()
     {
-        return $this->id;
+        $this->refreshUuid();
     }
 
     /**

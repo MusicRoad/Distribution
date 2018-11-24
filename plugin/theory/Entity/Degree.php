@@ -2,24 +2,20 @@
 
 namespace MusicRoad\TheoryBundle\Entity;
 
+use Claroline\AppBundle\Entity\Identifier\Id;
+use Claroline\AppBundle\Entity\Identifier\Uuid;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Degree.
  *
  * @ORM\Entity()
- * @ORM\Table(name="claro_music_degree")
+ * @ORM\Table(name="music_degree")
  */
 class Degree implements \JsonSerializable
 {
-    /**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     *
-     * @var int
-     */
-    private $id;
+    use Id;
+    use Uuid;
 
     /**
      * @ORM\Column(type="string")
@@ -29,7 +25,7 @@ class Degree implements \JsonSerializable
     private $name;
 
     /**
-     * Symbol of the Interval.
+     * Symbol of the Degree.
      *
      * @var string
      *
@@ -38,13 +34,11 @@ class Degree implements \JsonSerializable
     private $symbol;
 
     /**
-     * Get id.
-     *
-     * @return int
+     * Degree constructor.
      */
-    public function getId()
+    public function __construct()
     {
-        return $this->id;
+        $this->refreshUuid();
     }
 
     /**

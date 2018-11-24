@@ -17,16 +17,16 @@ class ChordController extends Controller
     /**
      * List all Chords.
      *
-     * @return array
-     *
      * @EXT\Route("")
      * @EXT\Method("GET")
+     *
+     * @return JsonResponse
      */
     public function listAction()
     {
         $entities = $this->container->get('doctrine.orm.entity_manager')
-            ->getRepository('TheoryBundle:Chord')
-            ->findBy(array(), array());
+            ->getRepository(Chord::class)
+            ->findBy([], []);
 
         return new JsonResponse($entities);
     }
@@ -34,12 +34,12 @@ class ChordController extends Controller
     /**
      * Get a Chord entity.
      *
+     * @EXT\Route("/{id}")
+     * @EXT\Method("GET")
+     *
      * @param Chord $chord
      *
      * @return JsonResponse
-     *
-     * @EXT\Route("/{id}")
-     * @EXT\Method("GET")
      */
     public function getAction(Chord $chord)
     {

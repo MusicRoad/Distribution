@@ -16,7 +16,7 @@ class KeyboardSerializer
      */
     public function getClass()
     {
-        return 'MusicRoad\InstrumentBundle\Entity\InstrumentType\Keyboard';
+        return Keyboard::class;
     }
 
     /**
@@ -24,7 +24,7 @@ class KeyboardSerializer
      */
     public function getSchema()
     {
-        return '#/plugin/music-instrument/keyboard.json';
+        return '~/music-road/distribution/plugin/instrument/keyboard.json';
     }
 
     /**
@@ -32,7 +32,7 @@ class KeyboardSerializer
      */
     public function getSamples()
     {
-        return '#/plugin/music-instrument/keyboard';
+        return '~/music-road/distribution/plugin/instrument/keyboard';
     }
 
     public function serialize(Keyboard $keyboard, array $options = [])

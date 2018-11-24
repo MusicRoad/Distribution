@@ -2,6 +2,7 @@
 
 namespace MusicRoad\TheoryBundle\Controller\Api;
 
+use MusicRoad\TheoryBundle\Entity\Degree;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration as EXT;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -16,16 +17,16 @@ class DegreeController extends Controller
     /**
      * List all Degrees.
      *
-     * @return array
-     *
      * @EXT\Route("")
      * @EXT\Method("GET")
+     *
+     * @return JsonResponse
      */
     public function listAction()
     {
         $entities = $this->container->get('doctrine.orm.entity_manager')
-            ->getRepository('TheoryBundle:Degree')
-            ->findBy(array(), array());
+            ->getRepository(Degree::class)
+            ->findBy([], []);
 
         return new JsonResponse($entities);
     }

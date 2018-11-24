@@ -1,8 +1,8 @@
-import {bootstrap} from '#/main/core/scaffolding/bootstrap'
+import {bootstrap} from '#/main/app/dom/bootstrap'
 
-import {reducer} from '#/plugin/music-theory/desktop/references/reducer'
+import {reducer} from '~/music-road/distribution/plugin/theory/desktop/references/reducer'
 
-import {Tool} from '#/plugin/music-theory/desktop/references/components/tool.jsx'
+import {Tool} from '~/music-road/distribution/plugin/theory/desktop/references/components/tool.jsx'
 
 // mount the react application
 bootstrap(

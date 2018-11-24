@@ -1,13 +1,13 @@
 import React from 'react'
 
-import {ResourceContainer} from '#/main/core/resource/containers/resource.jsx'
+import {ResourcePage} from '#/main/core/resource/containers/page'
 
 const Resource = props =>
-  <ResourceContainer
+  <ResourcePage
     customActions={[]}
   >
     CHORD GRID
-  </ResourceContainer>
+  </ResourcePage>
 
 Resource.propTypes = {
 

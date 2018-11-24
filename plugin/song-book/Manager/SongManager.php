@@ -1,10 +1,10 @@
 <?php
 
-namespace MusicRoad\BookBundle\Manager;
+namespace MusicRoad\SongBookBundle\Manager;
 
+use Claroline\AppBundle\Persistence\ObjectManager;
 use Claroline\CoreBundle\Entity\User;
-use Claroline\CoreBundle\Persistence\ObjectManager;
-use MusicRoad\BookBundle\Entity\Song;
+use MusicRoad\SongBookBundle\Entity\Song;
 use JMS\DiExtraBundle\Annotation as DI;
 
 /**
@@ -34,7 +34,7 @@ class SongManager
     public function __construct(ObjectManager $om)
     {
         $this->om = $om;
-        $this->repository = $this->om->getRepository('ClarolineMusicBookBundle:Song');
+        $this->repository = $this->om->getRepository('MusicRoadSongBookBundle:Song');
     }
 
     public function search(User $user)

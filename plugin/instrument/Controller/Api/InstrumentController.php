@@ -3,12 +3,10 @@
 namespace MusicRoad\InstrumentBundle\Controller\Api;
 
 use MusicRoad\InstrumentBundle\Entity\Instrument;
-use MusicRoad\InstrumentBundle\Form\Type\InstrumentType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration as EXT;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Instrument CRUD Controller.
@@ -29,7 +27,7 @@ class InstrumentController extends Controller
     {
         $entities = $this->container
             ->get('doctrine.orm.entity_manager')
-            ->getRepository('InstrumentBundle:Instrument')
+            ->getRepository(Instrument::class)
             ->findBy([], ['model' => 'ASC']);
 
         return new JsonResponse($entities);
@@ -48,66 +46,6 @@ class InstrumentController extends Controller
     public function getAction(Instrument $instrument)
     {
         return new JsonResponse($instrument);
-    }
-
-    /**
-     * Create a new Instrument.
-     *
-     * @param Request $request
-     *
-     * @return JsonResponse
-     *
-     * @EXT\Route("")
-     * @EXT\Method("POST")
-     */
-    public function createAction(Request $request)
-    {
-        $instrument = new Instrument();
-        $form = $this->createForm(InstrumentType::class, $instrument);
-
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            // Save entity
-            $this->container->get('doctrine.orm.entity_manager')->persist($instrument);
-            $this->container->get('doctrine.orm.entity_manager')->flush();
-
-            return new JsonResponse($instrument, 201);
-        }
-
-        $errors = $this->getFormErrors($form);
-
-        return new JsonResponse($errors, 422);
-    }
-
-    /**
-     * Edit an Instrument.
-     *
-     * @param Instrument $instrument
-     * @param Request    $request
-     *
-     * @return JsonResponse
-     *
-     * @EXT\Route("/{id}")
-     * @EXT\Method("PUT")
-     */
-    public function updateAction(Instrument $instrument, Request $request)
-    {
-        $form = $this->createForm(InstrumentType::class, $instrument, [
-            'method' => 'PUT',
-        ]);
-
-        $form->handleRequest($request);
-        if ($form->isValid()) {
-            // Save entity
-            $this->container->get('doctrine.orm.entity_manager')->persist($instrument);
-            $this->container->get('doctrine.orm.entity_manager')->flush();
-
-            return new JsonResponse($instrument);
-        }
-
-        $errors = $this->getFormErrors($form);
-
-        return new JsonResponse($errors, 422);
     }
 
     /**

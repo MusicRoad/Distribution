@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Entity()
  * @ORM\EntityListeners({"\MusicRoad\InstrumentBundle\Listener\Entity\InstrumentListener"})
- * @ORM\Table(name="claro_music_instrument")
+ * @ORM\Table(name="music_instrument")
  */
 class Instrument extends AbstractResource
 {

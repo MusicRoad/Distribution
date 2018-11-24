@@ -1,158 +1,54 @@
 <?php
 
-namespace MusicRoad\BookBundle\Listener\Resource;
+namespace MusicRoad\SongBookBundle\Listener\Resource;
 
-use Claroline\CoreBundle\Event\CopyResourceEvent;
-use Claroline\CoreBundle\Event\CreateFormResourceEvent;
-use Claroline\CoreBundle\Event\CreateResourceEvent;
-use Claroline\CoreBundle\Event\DeleteResourceEvent;
-use Claroline\CoreBundle\Event\OpenResourceEvent;
-use Claroline\CoreBundle\Event\PublicationChangeEvent;
-use MusicRoad\BookBundle\Form\Type\SongType;
+use Claroline\AppBundle\API\SerializerProvider;
+use Claroline\CoreBundle\Event\Resource\LoadResourceEvent;
 use JMS\DiExtraBundle\Annotation as DI;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\Form\FormInterface;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
+use MusicRoad\SongBookBundle\Entity\Song;
 
 /**
  * Listens to resource events dispatched by the core.
  *
- * @DI\Service("claro_music_book.listener.song")
+ * @DI\Service()
  */
 class SongListener
 {
     /**
-     * @var ContainerInterface
+     * @var SerializerProvider
      */
-    private $container;
+    private $serializer;
 
     /**
      * SongListener constructor.
      *
      * @DI\InjectParams({
-     *     "container" = @DI\Inject("service_container")
+     *     "serializer" = @DI\Inject("claroline.api.serializer")
      * })
      *
-     * @param ContainerInterface $container
+     * @param SerializerProvider $serializer
      */
-    public function __construct(ContainerInterface $container)
+    public function __construct(SerializerProvider $serializer)
     {
-        $this->container = $container;
+        $this->serializer = $serializer;
     }
 
     /**
-     * Displays a form to create a Song resource.
+     * Loads the Song resource.
      *
-     * @DI\Observe("create_form_claro_song")
+     * @DI\Observe("resource.music_artist.load")
      *
-     * @param CreateFormResourceEvent $event
+     * @param LoadResourceEvent $event
      */
-    public function onCreateForm(CreateFormResourceEvent $event)
+    public function onLoad(LoadResourceEvent $event)
     {
-        /** @var FormInterface $form */
-        $form = $this->container->get('form.factory')->create(new SongType());
+        /** @var Song $song */
+        $song = $event->getResource();
 
-        $content = $this->container->get('templating')->render(
-            'ClarolineCoreBundle:Resource:createForm.html.twig', [
-                'resourceType' => 'claro_song',
-                'form' => $form->createView(),
-            ]
-        );
-
-        $event->setResponseContent($content);
-        $event->stopPropagation();
-    }
-
-    /**
-     * Creates a new Song resource.
-     *
-     * @DI\Observe("create_claro_song")
-     *
-     * @param CreateResourceEvent $event
-     */
-    public function onCreate(CreateResourceEvent $event)
-    {
-        /** @var FormInterface $form */
-        $form = $this->container->get('form.factory')->create(new SongType());
-        $request = $this->container->get('request');
-
-        $form->handleRequest($request);
-        if ($form->isValid()) {
-            $em = $this->container->get('doctrine.orm.entity_manager');
-
-            $song = $form->getData();
-            $event->setPublished((bool) $form->get('published')->getData());
-
-            $em->persist($song);
-
-            $event->setResources([$song]);
-        } else {
-            $content = $this->container->get('templating')->render(
-                'ClarolineCoreBundle:Resource:createForm.html.twig', [
-                    'resourceType' => 'claro_song',
-                    'form' => $form->createView(),
-                ]
-            );
-
-            $event->setErrorFormContent($content);
-        }
-
-        $event->stopPropagation();
-    }
-
-    /**
-     * Opens the Song resource.
-     *
-     * @DI\Observe("open_claro_song")
-     *
-     * @param OpenResourceEvent $event
-     */
-    public function onOpen(OpenResourceEvent $event)
-    {
-        $subRequest = $this->container->get('request_stack')->getCurrentRequest()->duplicate([], null, [
-            '_controller' => 'ClarolineMusicBookBundle:Resource\Song:open',
-            'id' => $event->getResource()->getId(),
+        $event->setData([
+            'song' => $this->serializer->serialize($song),
         ]);
 
-        $response = $this->container->get('http_kernel')->handle($subRequest, HttpKernelInterface::SUB_REQUEST);
-
-        $event->setResponse($response);
-        $event->stopPropagation();
-    }
-
-    /**
-     * Deletes a Song resource.
-     *
-     * @DI\Observe("delete_claro_song")
-     *
-     * @param DeleteResourceEvent $event
-     */
-    public function onDelete(DeleteResourceEvent $event)
-    {
-        $event->stopPropagation();
-    }
-
-    /**
-     * Copies a Song resource.
-     *
-     * @DI\Observe("copy_claro_song")
-     *
-     * @param CopyResourceEvent $event
-     */
-    public function onCopy(CopyResourceEvent $event)
-    {
-        $event->stopPropagation();
-    }
-
-    /**
-     * Publishes or unpublishes a Song resource.
-     *
-     * @DI\Observe("publication_change_claro_song")
-     *
-     * @param PublicationChangeEvent $event
-     */
-    public function onPublicationChange(PublicationChangeEvent $event)
-    {
         $event->stopPropagation();
     }
 }

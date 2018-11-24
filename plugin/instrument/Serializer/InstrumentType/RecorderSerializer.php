@@ -16,7 +16,7 @@ class RecorderSerializer
      */
     public function getClass()
     {
-        return 'MusicRoad\InstrumentBundle\Entity\InstrumentType\Recorder';
+        return Recorder::class;
     }
 
     /**
@@ -24,7 +24,7 @@ class RecorderSerializer
      */
     public function getSchema()
     {
-        return '#/plugin/music-instrument/recorder.json';
+        return '~/music-road/distribution/plugin/instrument/recorder.json';
     }
 
     /**
@@ -32,7 +32,7 @@ class RecorderSerializer
      */
     public function getSamples()
     {
-        return '#/plugin/music-instrument/recorder';
+        return '~/music-road/distribution/plugin/instrument/recorder';
     }
 
     public function serialize(Recorder $recorder, array $options = [])

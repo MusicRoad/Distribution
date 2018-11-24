@@ -2,6 +2,7 @@
 
 namespace MusicRoad\TheoryBundle\Controller\Api;
 
+use MusicRoad\TheoryBundle\Entity\Interval;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration as EXT;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -16,16 +17,16 @@ class IntervalController extends Controller
     /**
      * List all Intervals.
      *
-     * @return JsonResponse
-     *
      * @EXT\Route("")
      * @EXT\Method("GET")
+     *
+     * @return JsonResponse
      */
     public function listAction()
     {
         $entities = $this->container->get('doctrine.orm.entity_manager')
-            ->getRepository('TheoryBundle:Interval')
-            ->findBy(array(), array('value' => 'ASC'));
+            ->getRepository(Interval::class)
+            ->findBy([], ['value' => 'ASC']);
 
         return new JsonResponse($entities);
     }

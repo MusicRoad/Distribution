@@ -2,21 +2,22 @@
 
 namespace MusicRoad\InstrumentBundle\Manager;
 
-use Claroline\CoreBundle\Persistence\ObjectManager;
+use Claroline\AppBundle\API\SerializerProvider;
+use Claroline\AppBundle\Persistence\ObjectManager;
 use MusicRoad\InstrumentBundle\Entity\Instrument;
-use MusicRoad\InstrumentBundle\Serializer\Serializer;
 use JMS\DiExtraBundle\Annotation as DI;
 
 /**
  * Manages instruments.
  *
- * @DI\Service("ujm_exo.manager.exercise")
+ * @DI\Service("music.manager.instrument")
  */
 class InstrumentManager
 {
-    /** @var Serializer */
+    /** @var SerializerProvider */
     private $serializer;
 
+    /** @var ObjectManager */
     private $om;
 
     /**

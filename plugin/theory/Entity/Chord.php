@@ -2,6 +2,8 @@
 
 namespace MusicRoad\TheoryBundle\Entity;
 
+use Claroline\AppBundle\Entity\Identifier\Id;
+use Claroline\AppBundle\Entity\Identifier\Uuid;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -9,18 +11,12 @@ use Doctrine\Common\Collections\ArrayCollection;
  * Chord.
  *
  * @ORM\Entity()
- * @ORM\Table(name="claro_music_chord")
+ * @ORM\Table(name="music_chord")
  */
 class Chord implements \JsonSerializable
 {
-    /**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     *
-     * @var int
-     */
-    private $id;
+    use Id;
+    use Uuid;
 
     /**
      * @ORM\Column(type="string")
@@ -55,7 +51,7 @@ class Chord implements \JsonSerializable
      *
      * @ORM\ManyToMany(targetEntity="MusicRoad\TheoryBundle\Entity\Interval", cascade={"all"})
      * @ORM\JoinTable(
-     *      name               = "claro_music_chord_interval",
+     *      name               = "music_chord_interval",
      *      joinColumns        = { @ORM\JoinColumn(name="chord_id",    referencedColumnName="id") },
      *      inverseJoinColumns = { @ORM\JoinColumn(name="interval_id", referencedColumnName="id") }
      * )
@@ -67,17 +63,9 @@ class Chord implements \JsonSerializable
      */
     public function __construct()
     {
-        $this->intervals = new ArrayCollection();
-    }
+        $this->refreshUuid();
 
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
+        $this->intervals = new ArrayCollection();
     }
 
     /**

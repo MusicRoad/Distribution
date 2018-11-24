@@ -2,24 +2,20 @@
 
 namespace MusicRoad\TheoryBundle\Entity;
 
+use Claroline\AppBundle\Entity\Identifier\Id;
+use Claroline\AppBundle\Entity\Identifier\Uuid;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Scale.
  *
  * @ORM\Entity()
- * @ORM\Table(name="claro_music_scale")
+ * @ORM\Table(name="music_scale")
  */
 class Scale implements \JsonSerializable
 {
-    /**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     *
-     * @var int
-     */
-    private $id;
+    use Id;
+    use Uuid;
 
     /**
      * @ORM\Column(type="string")
@@ -29,13 +25,11 @@ class Scale implements \JsonSerializable
     private $name;
 
     /**
-     * Get id.
-     *
-     * @return int
+     * Scale constructor.
      */
-    public function getId()
+    public function __construct()
     {
-        return $this->id;
+        $this->refreshUuid();
     }
 
     /**

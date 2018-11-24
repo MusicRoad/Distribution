@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Used to store the configuration of a Keyboard.
  *
  * @ORM\Entity()
- * @ORM\Table(name="claro_music_instrument_keyboard")
+ * @ORM\Table(name="music_instrument_keyboard")
  */
 class Keyboard extends AbstractType
 {

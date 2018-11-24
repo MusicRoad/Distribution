@@ -16,7 +16,7 @@ class NoteSerializer
      */
     public function getClass()
     {
-        return 'MusicRoad\TheoryBundle\Entity\Note\Note';
+        return Note::class;
     }
 
     /**
@@ -24,7 +24,7 @@ class NoteSerializer
      */
     public function getSchema()
     {
-        return '#/plugin/music-theory/note.json';
+        return '~/music-road/distribution/plugin/theory/note.json';
     }
 
     /**
@@ -32,7 +32,7 @@ class NoteSerializer
      */
     public function getSamples()
     {
-        return '#/plugin/music-theory/note';
+        return '~/music-road/distribution/plugin/theory/note';
     }
 
     public function serialize(Note $note, array $options = [])

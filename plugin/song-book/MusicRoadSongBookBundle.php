@@ -1,6 +1,6 @@
 <?php
 
-namespace MusicRoad\BookBundle;
+namespace MusicRoad\SongBookBundle;
 
 use Claroline\CoreBundle\Library\PluginBundle;
 use MusicRoad\InstrumentBundle\MusicRoadInstrumentBundle;

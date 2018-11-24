@@ -1,12 +1,11 @@
 
-import {makeReducer} from '#/main/core/scaffolding/reducer'
-import {makeResourceReducer} from '#/main/core/resource/reducer'
+import {makeReducer} from '#/main/app/store/reducer'
 
-const reducer = makeResourceReducer({}, {
+const reducer = {
   song: makeReducer({}, {
 
   })
-})
+}
 
 export {
   reducer

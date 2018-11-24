@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {getDefinition} from '#/plugin/music-instrument/instruments'
+import {getDefinition} from '~/music-road/distribution/plugin/instrument/instruments'
 
 const Tuner = props =>
   <div className="">

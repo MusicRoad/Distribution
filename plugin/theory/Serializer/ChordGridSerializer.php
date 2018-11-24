@@ -16,7 +16,7 @@ class ChordGridSerializer
      */
     public function getClass()
     {
-        return 'MusicRoad\TheoryBundle\Entity\ChordGrid';
+        return ChordGrid::class;
     }
 
     /**
@@ -24,7 +24,7 @@ class ChordGridSerializer
      */
     public function getSchema()
     {
-        return '#/plugin/music-theory/chord-grid.json';
+        return '~/music-road/distribution/plugin/theory/chord-grid.json';
     }
 
     /**
@@ -32,7 +32,7 @@ class ChordGridSerializer
      */
     public function getSamples()
     {
-        return '#/plugin/music-theory/chord-grid';
+        return '~/music-road/distribution/plugin/theory/chord-grid';
     }
 
     public function serialize(ChordGrid $chordGrid, array $options = [])

@@ -4,9 +4,9 @@ import { connect } from 'react-redux'
 
 import {EmptyPlaceholder} from '#/main/core/layout/components/placeholder.jsx'
 
-import {select} from '#/main/core/data/form/selectors'
-import {getDefinition} from '#/plugin/music-instrument/instruments'
-import {InstrumentType as InstrumentTypeTypes} from '#/plugin/music-instrument/instruments/prop-types'
+import {selectors as select} from '#/main/app/content/form/store'
+import {getDefinition} from '~/music-road/distribution/plugin/instrument/instruments'
+import {InstrumentType as InstrumentTypeTypes} from '~/music-road/distribution/plugin/instrument/instruments/prop-types'
 
 const PlayerComponent = props =>
   <div className="instrument-player">

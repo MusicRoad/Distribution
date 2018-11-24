@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Used to store the configuration of a Guitar.
  *
  * @ORM\Entity()
- * @ORM\Table(name="claro_music_instrument_guitar")
+ * @ORM\Table(name="music_instrument_guitar")
  */
 class Guitar extends AbstractType
 {

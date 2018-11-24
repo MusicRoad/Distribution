@@ -2,7 +2,7 @@ import React from 'react'
 import {PropTypes as T} from 'prop-types'
 import classes from 'classnames'
 
-import {trans} from '#/main/core/translation'
+import {trans} from '#/main/app/intl/translation'
 
 const Layout = props =>
   <div className={classes('row', props.className)}>

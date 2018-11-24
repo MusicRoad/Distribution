@@ -3,12 +3,13 @@ plugin:
     has_options: false
 
     resources:
-        - name:  claro_chord_grid
+        - name:  music_chord_grid
           class: MusicRoad\TheoryBundle\Entity\ChordGrid
           icon:  res_chord_grid.png
 
     tools:
-        - name:                        claro_music_references
-          class:                       globe
-          is_displayable_in_workspace: false
-          is_displayable_in_desktop:   true
+        - name:                         music_references
+          class:                        globe
+          is_displayable_in_workspace:  true
+          is_configurable_in_workspace: true
+          is_displayable_in_desktop:    true

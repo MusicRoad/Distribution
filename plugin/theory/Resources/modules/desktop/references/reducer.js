@@ -1,8 +1,7 @@
-import {makePageReducer} from '#/main/core/layout/page/reducer'
 
-const reducer = makePageReducer({}, {
+const reducer = {
 
-})
+}
 
 export {
   reducer

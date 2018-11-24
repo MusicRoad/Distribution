@@ -6,10 +6,10 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Vocals.
- * Used to store the configuration of Drums.
+ * Used to store the configuration of Vocals.
  *
  * @ORM\Entity()
- * @ORM\Table(name="claro_music_instrument_vocals")
+ * @ORM\Table(name="music_instrument_vocals")
  */
 class Vocals extends AbstractType
 {

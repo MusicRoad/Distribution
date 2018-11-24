@@ -1,6 +1,6 @@
 <?php
 
-namespace MusicRoad\BookBundle\Migrations\pdo_mysql;
+namespace MusicRoad\SongBookBundle\Migrations\pdo_mysql;
 
 use Doctrine\DBAL\Migrations\AbstractMigration;
 use Doctrine\DBAL\Schema\Schema;
@@ -15,7 +15,7 @@ class Version20161127113707 extends AbstractMigration
     public function up(Schema $schema)
     {
         $this->addSql('
-            CREATE TABLE claro_music_artist (
+            CREATE TABLE music_artist (
                 id INT AUTO_INCREMENT NOT NULL, 
                 resourceNode_id INT DEFAULT NULL, 
                 UNIQUE INDEX UNIQ_AEBFD881B87FAB32 (resourceNode_id), 
@@ -23,13 +23,13 @@ class Version20161127113707 extends AbstractMigration
             ) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB
         ');
         $this->addSql('
-            ALTER TABLE claro_music_artist 
+            ALTER TABLE music_artist 
             ADD CONSTRAINT FK_AEBFD881B87FAB32 FOREIGN KEY (resourceNode_id) 
             REFERENCES claro_resource_node (id) 
             ON DELETE CASCADE
         ');
         $this->addSql('
-            CREATE TABLE claro_music_sheet_music (
+            CREATE TABLE music_sheet_music (
                 id INT AUTO_INCREMENT NOT NULL, 
                 resourceNode_id INT DEFAULT NULL, 
                 UNIQUE INDEX UNIQ_DE7CE679B87FAB32 (resourceNode_id), 
@@ -37,7 +37,7 @@ class Version20161127113707 extends AbstractMigration
             ) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB
         ');
         $this->addSql('
-            CREATE TABLE claro_music_song (
+            CREATE TABLE music_song (
                 id INT AUTO_INCREMENT NOT NULL, 
                 artist VARCHAR(255) DEFAULT NULL, 
                 cover VARCHAR(255) DEFAULT NULL, 
@@ -47,7 +47,7 @@ class Version20161127113707 extends AbstractMigration
             ) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB
         ');
         $this->addSql('
-            CREATE TABLE claro_music_song_sheet_music (
+            CREATE TABLE music_song_sheet_music (
                 song_id INT NOT NULL, 
                 sheet_music_id INT NOT NULL, 
                 INDEX IDX_5C18AFAEA0BDB2F3 (song_id), 
@@ -56,29 +56,29 @@ class Version20161127113707 extends AbstractMigration
             ) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB
         ');
         $this->addSql('
-            ALTER TABLE claro_music_sheet_music 
+            ALTER TABLE music_sheet_music 
             ADD CONSTRAINT FK_DE7CE679B87FAB32 FOREIGN KEY (resourceNode_id) 
             REFERENCES claro_resource_node (id) 
             ON DELETE CASCADE
         ');
         $this->addSql('
-            ALTER TABLE claro_music_song 
+            ALTER TABLE music_song 
             ADD CONSTRAINT FK_5556160B87FAB32 FOREIGN KEY (resourceNode_id) 
             REFERENCES claro_resource_node (id) 
             ON DELETE CASCADE
         ');
         $this->addSql('
-            ALTER TABLE claro_music_song_sheet_music 
+            ALTER TABLE music_song_sheet_music 
             ADD CONSTRAINT FK_5C18AFAEA0BDB2F3 FOREIGN KEY (song_id) 
-            REFERENCES claro_music_song (id)
+            REFERENCES music_song (id)
         ');
         $this->addSql('
-            ALTER TABLE claro_music_song_sheet_music 
+            ALTER TABLE music_song_sheet_music 
             ADD CONSTRAINT FK_5C18AFAE8CC70837 FOREIGN KEY (sheet_music_id) 
-            REFERENCES claro_music_sheet_music (id)
+            REFERENCES music_sheet_music (id)
         ');
         $this->addSql('
-            CREATE TABLE claro_music_song_track (
+            CREATE TABLE music_song_track (
                 id INT AUTO_INCREMENT NOT NULL, 
                 song_id INT DEFAULT NULL, 
                 instrument_id INT DEFAULT NULL, 
@@ -92,15 +92,15 @@ class Version20161127113707 extends AbstractMigration
             ) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB
         ');
         $this->addSql('
-            ALTER TABLE claro_music_song_track 
+            ALTER TABLE music_song_track 
             ADD CONSTRAINT FK_A6578E6A0BDB2F3 FOREIGN KEY (song_id) 
-            REFERENCES claro_music_song (id) 
+            REFERENCES music_song (id) 
             ON DELETE CASCADE
         ');
         $this->addSql('
-            ALTER TABLE claro_music_song_track 
+            ALTER TABLE music_song_track 
             ADD CONSTRAINT FK_A6578E6CF11D9C FOREIGN KEY (instrument_id) 
-            REFERENCES claro_music_instrument (id) 
+            REFERENCES music_instrument (id) 
             ON DELETE CASCADE
         ');
     }
@@ -108,27 +108,27 @@ class Version20161127113707 extends AbstractMigration
     public function down(Schema $schema)
     {
         $this->addSql('
-            DROP TABLE claro_music_song_track
+            DROP TABLE music_song_track
         ');
         $this->addSql('
-            ALTER TABLE claro_music_song_sheet_music 
+            ALTER TABLE music_song_sheet_music 
             DROP FOREIGN KEY FK_5C18AFAE8CC70837
         ');
         $this->addSql('
-            ALTER TABLE claro_music_song_sheet_music 
+            ALTER TABLE music_song_sheet_music 
             DROP FOREIGN KEY FK_5C18AFAEA0BDB2F3
         ');
         $this->addSql('
-            DROP TABLE claro_music_sheet_music
+            DROP TABLE music_sheet_music
         ');
         $this->addSql('
-            DROP TABLE claro_music_song
+            DROP TABLE music_song
         ');
         $this->addSql('
-            DROP TABLE claro_music_song_sheet_music
+            DROP TABLE music_song_sheet_music
         ');
         $this->addSql('
-            DROP TABLE claro_music_artist
+            DROP TABLE music_artist
         ');
     }
 }

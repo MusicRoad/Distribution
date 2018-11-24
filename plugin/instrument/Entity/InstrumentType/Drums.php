@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Used to store the configuration of Drums.
  *
  * @ORM\Entity()
- * @ORM\Table(name="claro_music_instrument_drums")
+ * @ORM\Table(name="music_instrument_drums")
  */
 class Drums extends AbstractType
 {

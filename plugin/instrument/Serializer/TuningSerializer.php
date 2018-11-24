@@ -2,7 +2,7 @@
 
 namespace MusicRoad\InstrumentBundle\Serializer;
 
-use Claroline\CoreBundle\API\SerializerProvider;
+use Claroline\AppBundle\API\SerializerProvider;
 use MusicRoad\InstrumentBundle\Entity\Tuning\Tuning;
 use MusicRoad\InstrumentBundle\Entity\Tuning\TuningNote;
 use JMS\DiExtraBundle\Annotation as DI;
@@ -35,7 +35,7 @@ class TuningSerializer
      */
     public function getClass()
     {
-        return 'MusicRoad\InstrumentBundle\Entity\Tuning\Tuning';
+        return Tuning::class;
     }
 
     /**
@@ -43,7 +43,7 @@ class TuningSerializer
      */
     public function getSchema()
     {
-        return '#/plugin/music-instrument/tuning.json';
+        return '~/music-road/distribution/plugin/instrument/tuning.json';
     }
 
     /**
@@ -51,7 +51,7 @@ class TuningSerializer
      */
     public function getSamples()
     {
-        return '#/plugin/music-instrument/tuning';
+        return '~/music-road/distribution/plugin/instrument/tuning';
     }
 
     public function serialize(Tuning $tuning, array $options = [])

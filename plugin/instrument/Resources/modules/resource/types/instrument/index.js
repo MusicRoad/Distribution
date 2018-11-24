@@ -1,13 +1,9 @@
-import {bootstrap} from '#/main/core/scaffolding/bootstrap'
+import {bootstrap} from '#/main/app/dom/bootstrap'
 
-import {registerInstrumentTypes} from '#/plugin/music-instrument/data'
-import {registerDefaultInstrumentTypes} from '#/plugin/music-instrument/instruments'
+import {registerDefaultInstrumentTypes} from '~/music-road/distribution/plugin/instrument/instruments'
 
-import {reducer} from '#/plugin/music-instrument/resource/types/instrument/reducer'
-import {Resource} from '#/plugin/music-instrument/resource/types/instrument/components/resource.jsx'
-
-// register data types
-registerInstrumentTypes()
+import {reducer} from '~/music-road/distribution/plugin/instrument/resource/types/instrument/reducer'
+import {Resource} from '~/music-road/distribution/plugin/instrument/resource/types/instrument/components/resource.jsx'
 
 // register configured instruments
 registerDefaultInstrumentTypes()

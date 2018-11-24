@@ -1,12 +1,12 @@
 <?php
 
-namespace MusicRoad\BookBundle\Controller\Api;
+namespace MusicRoad\SongBookBundle\Controller\Api;
 
 use Claroline\CoreBundle\Entity\User;
 use Claroline\CoreBundle\Library\Security\Collection\ResourceCollection;
 use Claroline\CoreBundle\Validator\Exception\InvalidDataException;
-use MusicRoad\BookBundle\Entity\Song;
-use MusicRoad\BookBundle\Manager\SongManager;
+use MusicRoad\SongBookBundle\Entity\Song;
+use MusicRoad\SongBookBundle\Manager\SongManager;
 use JMS\DiExtraBundle\Annotation as DI;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration as EXT;
 use Symfony\Component\HttpFoundation\JsonResponse;

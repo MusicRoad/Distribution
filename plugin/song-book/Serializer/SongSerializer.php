@@ -1,8 +1,8 @@
 <?php
 
-namespace MusicRoad\BookBundle\Serializer;
+namespace MusicRoad\SongBookBundle\Serializer;
 
-use MusicRoad\BookBundle\Entity\Song;
+use MusicRoad\SongBookBundle\Entity\Song;
 use JMS\DiExtraBundle\Annotation as DI;
 
 /**
@@ -16,7 +16,7 @@ class SongSerializer
      */
     public function getClass()
     {
-        return 'MusicRoad\BookBundle\Entity\Song';
+        return Song::class;
     }
 
     /**
@@ -24,7 +24,7 @@ class SongSerializer
      */
     public function getSchema()
     {
-        return '#/plugin/music-book/song.json';
+        return '~/music-road/distribution/plugin/song-book/song.json';
     }
 
     /**
@@ -32,7 +32,7 @@ class SongSerializer
      */
     public function getSamples()
     {
-        return '#/plugin/music-book/song';
+        return '~/music-road/distribution/plugin/song-book/song';
     }
 
     public function serialize(Song $song, array $options = [])

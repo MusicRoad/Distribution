@@ -17,16 +17,16 @@ class ScaleController extends Controller
     /**
      * List all Scales.
      *
-     * @return JsonResponse
-     *
      * @EXT\Route("")
      * @EXT\Method("GET")
+     *
+     * @return JsonResponse
      */
     public function listAction()
     {
         $entities = $this->container->get('doctrine.orm.entity_manager')
-            ->getRepository('TheoryBundle:Scale')
-            ->findBy(array(), array());
+            ->getRepository(Scale::class)
+            ->findBy([], []);
 
         return new JsonResponse($entities);
     }
@@ -34,12 +34,12 @@ class ScaleController extends Controller
     /**
      * Get a Scale entity.
      *
+     * @EXT\Route("/{id}")
+     * @EXT\Method("GET")
+     *
      * @param Scale $scale
      *
      * @return JsonResponse
-     *
-     * @EXT\Route("/{id}")
-     * @EXT\Method("GET")
      */
     public function getAction(Scale $scale)
     {

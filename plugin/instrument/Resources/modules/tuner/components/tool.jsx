@@ -2,11 +2,11 @@ import React from 'react'
 import {PropTypes as T} from 'prop-types'
 import {connect} from 'react-redux'
 
-import {trans} from '#/main/core/translation'
+import {trans} from '#/main/app/intl/translation'
 import {PageHeader, PageContainer} from '#/main/core/layout/page'
 
 import {actions} from './../actions'
-import {InstrumentMenu} from '#/plugin/music-instrument/resource/types/instrument/components/menu.jsx'
+import {InstrumentMenu} from '~/music-road/distribution/plugin/instrument/resource/types/instrument/components/menu.jsx'
 /*import {TuningMenu} from './tuning-menu.jsx'*/
 
 const TunerTool = props =>

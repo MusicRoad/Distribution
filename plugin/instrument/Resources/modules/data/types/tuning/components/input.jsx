@@ -1,8 +1,8 @@
 import React from 'react'
 
-import {PropTypes as T, implementPropTypes} from '#/main/core/scaffolding/prop-types'
+import {PropTypes as T, implementPropTypes} from '#/main/app/prop-types'
 import {FormField as FormFieldTypes} from '#/main/core/layout/form/prop-types'
-import {Tuning as TuningTypes} from '#/plugin/music-instrument/tuning/prop-types'
+import {Tuning as TuningTypes} from '~/music-road/distribution/plugin/instrument/data/types/tuning/prop-types'
 
 const Tuning = props =>
   <div className="">

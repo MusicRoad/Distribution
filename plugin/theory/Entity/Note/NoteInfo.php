@@ -2,27 +2,21 @@
 
 namespace MusicRoad\TheoryBundle\Entity\Note;
 
+use Claroline\AppBundle\Entity\Identifier\Id;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Note Info.
  *
  * @ORM\Entity()
- * @ORM\Table(name="claro_music_note_info")
+ * @ORM\Table(name="music_note_info")
  */
 class NoteInfo
 {
     const DISPLAY_SHARP = 'sharpName';
     const DISPLAY_FLAT = 'flatName';
 
-    /**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     *
-     * @var int
-     */
-    private $id;
+    use Id;
 
     /**
      * Sharp Name of the Note.
@@ -59,16 +53,6 @@ class NoteInfo
      * @var string
      */
     private $color;
-
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Get name.

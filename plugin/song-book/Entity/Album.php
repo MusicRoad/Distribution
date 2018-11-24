@@ -1,6 +1,6 @@
 <?php
 
-namespace MusicRoad\BookBundle\Entity;
+namespace MusicRoad\SongBookBundle\Entity;
 
 class Album
 {

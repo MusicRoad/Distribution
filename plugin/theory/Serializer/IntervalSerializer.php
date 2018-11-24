@@ -16,7 +16,7 @@ class IntervalSerializer
      */
     public function getClass()
     {
-        return 'MusicRoad\TheoryBundle\Entity\Interval';
+        return Interval::class;
     }
 
     /**
@@ -24,7 +24,7 @@ class IntervalSerializer
      */
     public function getSchema()
     {
-        return '#/plugin/music-theory/interval.json';
+        return '~/music-road/distribution/plugin/theory/interval.json';
     }
 
     /**
@@ -32,7 +32,7 @@ class IntervalSerializer
      */
     public function getSamples()
     {
-        return '#/plugin/music-theory/interval';
+        return '~/music-road/distribution/plugin/theory/interval';
     }
 
     public function serialize(Interval $interval, array $options = [])

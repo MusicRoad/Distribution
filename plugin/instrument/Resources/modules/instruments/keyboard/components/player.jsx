@@ -2,7 +2,7 @@ import React from 'react'
 import {PropTypes as T} from 'prop-types'
 import classes from 'classnames'
 
-import {constants} from '#/plugin/music-theory/constants'
+import {constants} from '~/music-road/distribution/plugin/theory/constants'
 
 const PianoKey = props =>
   <button

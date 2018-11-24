@@ -1,7 +1,7 @@
-import {bootstrap} from '#/main/core/scaffolding/bootstrap'
+import {bootstrap} from '#/main/app/dom/bootstrap'
 
-import {reducer} from '#/plugin/music-book/resource/types/song/reducer'
-import {Resource} from '#/plugin/music-book/resource/types/song/components/resource.jsx'
+import {reducer} from '~/music-road/distribution/plugin/song-book/resource/types/song/reducer'
+import {Resource} from '~/music-road/distribution/plugin/song-book/resource/types/song/components/resource.jsx'
 
 // mount the react application
 bootstrap(

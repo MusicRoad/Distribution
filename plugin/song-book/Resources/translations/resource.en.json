@@ -1,15 +1,7 @@
 {
-  "claro_artist": "Artist",
-  "artist_form_name": "Name",
-  "artist_form_published": "Publish",
-
-  "claro_song": "Song",
-  "song_form_name": "Name",
-  "song_form_published": "Publish",
-
-  "claro_sheet_music": "Sheet music",
-  "sheet_music_form_name": "Name",
-  "sheet_music_form_published": "Publish",
+  "music_artist": "Artist",
+  "music_song": "Song",
+  "music_sheet_music": "Sheet music",
 
   "song_artists": "Artists",
   "song_meta": "Information",

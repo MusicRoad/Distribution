@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Stores the default configuration for each instrument type (e.g. guitar, bass, recorder, keyboard).
  *
  * @ORM\Entity()
- * @ORM\Table(name="claro_music_instrument_type")
+ * @ORM\Table(name="music_instrument_type")
  */
 class InstrumentType
 {

@@ -16,7 +16,7 @@ class InstrumentTypeSerializer
      */
     public function getClass()
     {
-        return 'MusicRoad\InstrumentBundle\Entity\InstrumentType';
+        return InstrumentType::class;
     }
 
     /**
@@ -24,7 +24,7 @@ class InstrumentTypeSerializer
      */
     public function getSchema()
     {
-        return '#/plugin/music-instrument/instrument-type.json';
+        return '~/music-road/distribution/plugin/instrument/instrument-type.json';
     }
 
     /**
@@ -32,7 +32,7 @@ class InstrumentTypeSerializer
      */
     public function getSamples()
     {
-        return '#/plugin/music-instrument/instrument-type';
+        return '~/music-road/distribution/plugin/instrument/instrument-type';
     }
 
     public function serialize(InstrumentType $instrumentType, array $options = [])

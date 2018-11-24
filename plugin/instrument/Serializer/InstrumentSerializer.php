@@ -2,7 +2,7 @@
 
 namespace MusicRoad\InstrumentBundle\Serializer;
 
-use Claroline\CoreBundle\API\SerializerProvider;
+use Claroline\AppBundle\API\SerializerProvider;
 use MusicRoad\InstrumentBundle\Entity\Instrument;
 use JMS\DiExtraBundle\Annotation as DI;
 
@@ -34,7 +34,7 @@ class InstrumentSerializer
      */
     public function getClass()
     {
-        return 'MusicRoad\InstrumentBundle\Entity\Instrument';
+        return Instrument::class;
     }
 
     /**
@@ -42,7 +42,7 @@ class InstrumentSerializer
      */
     public function getSchema()
     {
-        return '#/plugin/music-instrument/instrument.json';
+        return '~/music-road/distribution/plugin/instrument/instrument.json';
     }
 
     /**
@@ -50,7 +50,7 @@ class InstrumentSerializer
      */
     public function getSamples()
     {
-        return '#/plugin/music-instrument/instrument';
+        return '~/music-road/distribution/plugin/instrument/instrument';
     }
 
     public function serialize(Instrument $instrument, array $options = [])

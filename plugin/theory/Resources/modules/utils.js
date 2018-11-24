@@ -1,4 +1,4 @@
-import {constants} from '#/plugin/music-theory/constants'
+import {constants} from '~/music-road/distribution/plugin/theory/constants'
 
 function addSemitones(baseNote, semitones) {
   const pos = constants.notes.findIndex(note => note.sharp_name === baseNote.sharp_name)

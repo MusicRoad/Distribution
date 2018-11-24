@@ -1,8 +1,8 @@
-import {bootstrap} from '#/main/core/scaffolding/bootstrap'
+import {bootstrap} from '#/main/app/dom/bootstrap'
 
-import {reducer} from '#/plugin/music-theory/resource/types/chord-grid/reducer'
+import {reducer} from '~/music-road/distribution/plugin/theory/resource/types/chord-grid/reducer'
 
-import {Resource} from '#/plugin/music-theory/resource/types/chord-grid/components/resource.jsx'
+import {Resource} from '~/music-road/distribution/plugin/theory/resource/types/chord-grid/components/resource.jsx'
 
 // mount the react application
 bootstrap(

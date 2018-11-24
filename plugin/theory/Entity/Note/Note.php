@@ -2,7 +2,8 @@
 
 namespace MusicRoad\TheoryBundle\Entity\Note;
 
-use Claroline\CoreBundle\Entity\Model\UuidTrait;
+use Claroline\AppBundle\Entity\Identifier\Id;
+use Claroline\AppBundle\Entity\Identifier\Uuid;
 use MusicRoad\TheoryBundle\Entity\Interval;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -10,20 +11,12 @@ use Doctrine\ORM\Mapping as ORM;
  * Note.
  *
  * @ORM\Entity(repositoryClass="MusicRoad\TheoryBundle\Repository\NoteRepository")
- * @ORM\Table(name="claro_music_note")
+ * @ORM\Table(name="music_note")
  */
 class Note
 {
-    use UuidTrait;
-
-    /**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     *
-     * @var int
-     */
-    private $id;
+    use Id;
+    use Uuid;
 
     /**
      * Note relative value (in semitones) to C0.
@@ -92,13 +85,11 @@ class Note
     private $next;
 
     /**
-     * Get id.
-     *
-     * @return int
+     * Note constructor.
      */
-    public function getId()
+    public function __construct()
     {
-        return $this->id;
+        $this->refreshUuid();
     }
 
     /**
