@@ -1,0 +1,34 @@
+{
+  "name": "music-road/distribution",
+  "description": "MusicRoad Claroline distribution",
+  "keywords": ["Claroline"],
+  "homepage": "https://github.com/MusicRoad",
+  "type": "claroline-plugin",
+  "license": "GPL-3.0-or-later",
+  "authors": [{
+    "name": "Axel Penin (Elorfin)",
+    "homepage": "https://github.com/Elorfin"
+  }],
+  "require": {
+    "claroline/distribution": "*"
+  },
+  "replace": {
+    "music-road/instrument-bundle": "*",
+    "music-road/song-book-bundle": "*",
+    "music-road/theory-bundle": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "MusicRoad\\InstrumentBundle\\": "plugin/instrument/",
+      "MusicRoad\\SongBookBundle\\": "plugin/song-book/",
+      "MusicRoad\\TheoryBundle\\": "plugin/theory/"
+    }
+  },
+  "extra": {
+    "bundles": [
+      "MusicRoad\\InstrumentBundle\\MusicRoadInstrumentBundle",
+      "MusicRoad\\SongBookBundle\\MusicRoadSongBookBundle",
+      "MusicRoad\\TheoryBundle\\MusicRoadTheoryBundle"
+    ]
+  }
+}

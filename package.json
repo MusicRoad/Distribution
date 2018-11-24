@@ -1,0 +1,13 @@
+{
+  "name": "music-road-distribution",
+  "version": "1.0.0",
+  "description": "MusicRoad distribution frontend dependencies",
+  "license": "GPL-3.0",
+  "repository": "https://github.com/MusicRoad/Distribution",
+  "dependencies": {
+
+  },
+  "files": [
+    "package.json"
+  ]
+}
